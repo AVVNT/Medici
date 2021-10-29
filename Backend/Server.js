@@ -5,12 +5,17 @@ const db = require('./Database/Connection')
 
 const PORT = process.env.PORT || 3000;
 
+const adminCategory = require('./APIs/Admin/Category')
 const authentication = require('./APIs/Authentication/Authentication');
 
 db.connectDatabase()
 
 app.use(cors())
 
+//ADMIN APIS
+app.use('/api/admin/category', adminCategory)
+
+//AUTHENTICATION APIS
 app.use('/api/authentication', authentication)
 
 app.listen(PORT, () => {
@@ -18,3 +23,7 @@ app.listen(PORT, () => {
 });
 
 console.log("SERVER RUNNING")
+
+module.exports = {
+    jwtSecret = "abdullah"
+}

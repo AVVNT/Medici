@@ -12,7 +12,8 @@ const errors = require('../Error Messages/ErrorMessages')
 const userCollection = "users"
 
 // JWT secret code
-const secret = "abdullah"
+const server = require('../../Server')
+const secret = server.jwtSecret
 
 const router = express.Router()
 
