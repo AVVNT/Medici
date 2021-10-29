@@ -1,11 +1,6 @@
-const {
-    MongoClient
-} = require('mongodb')
-const uri = "mongodb+srv://root:scsXq9aUPDKqHE@@cluster0.nythh.mongodb.net/test";
-const client = new MongoClient(uri, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true
-});
+const { MongoClient } = require('mongodb');
+const uri = "mongodb+srv://root:9TXLxnV51lOV7IQr@cluster0.nythh.mongodb.net/Medici?retryWrites=true&w=majority";
+const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
 const dbName = "Medici"
 
 module.exports = {
