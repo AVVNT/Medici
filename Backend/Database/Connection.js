@@ -66,5 +66,5 @@ module.exports = {
         //     if (err) throw err;
         //     console.log("Collection is created!");
         // });
-    }
+    },
 }

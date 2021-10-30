@@ -15,6 +15,10 @@ const router = express.Router()
 router.use(bodyparser.json())
 
 //CREATE CATEGORY API
+/*
+seperate the inserting new category and creating a category collection 
+into different try catch blocks to avoid errors or consistency issues
+*/
 router.post("/create", async (req, res) =>{
     let token = req.headers['x-access-token'];
     if (!token)
@@ -30,6 +34,9 @@ router.post("/create", async (req, res) =>{
             }
             try {
                 await db.createCollection(data.category)
+                await db.insertOneDocument("Categories", {
+                    "name" : data.category
+                })
                 return res.json({
                     "header": {
                         "error": 0,
