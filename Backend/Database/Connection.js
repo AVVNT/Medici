@@ -61,10 +61,13 @@ module.exports = {
         } catch (error) {
             throw error
         }
-
-        // client.db(dbName).createCollection(collectionName, function(err, result) {
-        //     if (err) throw err;
-        //     console.log("Collection is created!");
-        // });
     },
+
+    renameCollection: async function(oldName, newName) {
+        try {
+            await client.db(dbName).collection(oldName).rename(newName)
+        } catch (error) {
+            throw error
+        }
+    }
 }

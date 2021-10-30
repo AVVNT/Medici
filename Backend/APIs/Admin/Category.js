@@ -14,6 +14,8 @@ const router = express.Router()
 
 router.use(bodyparser.json())
 
+const categoriesCollection = "Categories"
+
 //CREATE CATEGORY API
 /*
 seperate the inserting new category and creating a category collection 
@@ -34,7 +36,7 @@ router.post("/create", async (req, res) =>{
             }
             try {
                 await db.createCollection(data.category)
-                await db.insertOneDocument("Categories", {
+                await db.insertOneDocument(categoriesCollection, {
                     "name" : data.category
                 })
                 return res.json({
@@ -51,8 +53,11 @@ router.post("/create", async (req, res) =>{
     }
 })
 
-//UPDATE CATEGORY API
-router.post("/update", async (req, res) =>{
+//EDIT CATEGORY API
+/*
+add checks for if collection exists or not 
+*/
+router.post("/edit", async (req, res) =>{
     let token = req.headers['x-access-token'];
     if (!token)
         return(res.json(errors.jwtNoTokenProvided))
@@ -62,7 +67,32 @@ router.post("/update", async (req, res) =>{
                 return res.json(errors.jwtAuthenticationFailed)
 
             let o_id = new ObjectId(decoded._id)
-            //ADD CODE HERER\
+            let data = {
+                "old_category" : {
+                    "name" : req.body.old_category.name
+                },
+                "new_category" : {
+                    "name" : req.body.new_category.name
+                }
+            }
+            try {
+                await db.renameCollection(data.old_category.name, data.new_category.name)
+                await db.modifyOneDocument(categoriesCollection, 
+                    {"name" : data.old_category.name}, 
+                    {
+                        $set : {
+                            "name" : data.new_category.name
+                        }
+                    })
+                return res.json({
+                "header": {
+                    "error": 0,
+                    "message": "Category edit succesfully"
+                }
+                })
+            } catch (error) {
+                return res.json(errors.databaseError(error))
+            }
         })
     }
 })
