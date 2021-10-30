@@ -53,5 +53,18 @@ module.exports = {
         if(result.deletedCount == 0){
             throw "Could not find document"
         }
+    },
+
+    createCollection: async function(collectionName) {
+        try {
+            await client.db(dbName).createCollection(collectionName)
+        } catch (error) {
+            throw error
+        }
+
+        // client.db(dbName).createCollection(collectionName, function(err, result) {
+        //     if (err) throw err;
+        //     console.log("Collection is created!");
+        // });
     }
 }

@@ -9,8 +9,8 @@ const router = express.Router()
 
 router.use(bodyparser.json())
 
-//GET PRODUCT BY CATEGORY API
-router.post("/add", async (req, res) =>{
+//GET PRODUCTS BY CATEGORY API
+router.post("/get", async (req, res) =>{
     
 })
 

@@ -8,8 +8,7 @@ const db = require('../../Database/Connection')
 const errors = require('../Error Messages/ErrorMessages')
 
 // JWT secret code
-const server = require('../../Server')
-const secret = server.jwtSecret
+const secret = require('../../Config.json').secret
 
 const router = express.Router()
 
@@ -26,7 +25,21 @@ router.post("/create", async (req, res) =>{
                 return res.json(errors.jwtAuthenticationFailed)
 
             let o_id = new ObjectId(decoded._id)
-            //ADD CODE HERER\
+            let data = {
+                "category" : req.body.category
+            }
+            try {
+                await db.createCollection(data.category)
+                return res.json({
+                    "header": {
+                        "error": 0,
+                        "message": "Created category succesfully"
+                    }
+                })
+            } catch (error) {
+                if(error.codeName == "NamespaceExists")
+                return res.json(errors.databaseError("Category already exists"))
+            }
         })
     }
 })
