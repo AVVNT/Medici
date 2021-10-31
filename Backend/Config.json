@@ -1,3 +1,5 @@
 {
-    "secret" : "abdullah"
+    "secret" : "abdullah",
+    "dbName" : "Medici",
+    "categoriesCollectionName" : "Categories"
 }

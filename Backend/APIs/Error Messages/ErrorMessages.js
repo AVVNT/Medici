@@ -42,5 +42,11 @@ module.exports = {
             "error": 7,
             "message": "Required information missing"
         }
+    },
+    categoryMissing: {
+        "header": {
+            "error": 8,
+            "message": "Category doesn't exist"
+        }
     }
 }
