@@ -73,6 +73,11 @@ router.post("/add", async (req, res) =>{
 })
 
 //UPDATE PRODUCT API
+//Add Code to check if category Exist before adding
+//Add Code to change Categories. 
+//Nested API
+//Fix Error Hndling Nally.
+//NOT RUNNING
 router.post("/update", async (req, res) =>{
     let token = req.headers['x-access-token'];
     if (!token)
@@ -82,8 +87,37 @@ router.post("/update", async (req, res) =>{
             if(err)
                 return res.json(errors.jwtAuthenticationFailed)
 
-            let o_id = new ObjectId(decoded._id)
-            //ADD CODE HERER\
+            let data = {
+               "collection_name" : req.body.collection_name,
+               "_id" : req.body._id,
+               "new_data" : {
+                    "sku" : req.body.sku,
+                    "name" : req.body.name,
+                    "manufacturer" : req.body.manufacturer,
+                    "stock" : req.body.stock,
+                    "price" : req.body.price,
+                    "discounted_price" : req.body.discounted_price,
+                    "short_description" : req.body.short_description,
+                    "long_description" : req.body.long_description,
+                    "product_image" : req.body.product_image,
+                    "category" : req.body.category
+               }
+            }
+            console.log(data)
+            try {
+                let o_id = ObjectId(data._id)
+                await db.modifyOneDocument(data.colllection_name, {
+                    "_id" : o_id
+                }, data.new_data)
+                return res.json({
+                    "header" : {
+                        "error": 0,
+                        "message" : "Product Updated Sucessfully"
+                    }
+                })
+            } catch (error) {
+                res.json(errors.databaseError(error))
+            }
         })
     }
 })
@@ -99,7 +133,7 @@ router.post("/remove", async (req, res) =>{
                 return res.json(errors.jwtAuthenticationFailed)
 
             let o_id = new ObjectId(decoded._id)
-            //ADD CODE HERER\
+            
         })
     }
 })

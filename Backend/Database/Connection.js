@@ -42,11 +42,15 @@ module.exports = {
     },
 
     modifyOneDocument: async function (collectionName, query, newData) {
-        const collection = client.db(dbName).collection(collectionName)
+        try {
 
-        let updated = await collection.updateOne(query, newData)
-
-        return(updated)
+            const collection = client.db(dbName).collection(collectionName)
+            let updated = await collection.updateOne(query, newData)
+            return(updated)
+        } catch (error) {
+            console.log(error)
+            throw error
+        }
     },
 
     removeOneDocument: async function(collectionName, query) {
