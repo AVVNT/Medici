@@ -48,5 +48,11 @@ module.exports = {
             "error": 8,
             "message": "Category doesn't exist"
         }
-    }
+    },
+    productAlreadyExists: {
+        "header": {
+            "error" : 9,
+            "message" : "Product Already Exists"
+        }
+    },
 }
