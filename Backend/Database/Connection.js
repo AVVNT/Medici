@@ -41,6 +41,12 @@ module.exports = {
         return(documents)
     },
 
+    getAllDocumentsPagination: async function (collectionName, offset, limit) {
+        const collection = client.db(dbName).collection(collectionName)
+        let documents = await collection.find("").skip(offset).limit(limit).toArray()
+        return documents
+    }, 
+
     modifyOneDocument: async function (collectionName, query, newData) {
         try {
 

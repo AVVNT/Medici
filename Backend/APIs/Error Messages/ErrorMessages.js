@@ -43,6 +43,12 @@ module.exports = {
             "message": "Required information missing"
         }
     },
+    categoryMissing: {
+        "header": {
+            "error": 8,
+            "message": "Category doesn't exist"
+        }
+    },
     productAlreadyExists: {
         "header": {
             "error" : 9,
