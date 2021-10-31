@@ -9,20 +9,24 @@ module.exports = {
     },
 
     insertOneDocument: async function (collectionName, document) {
-        const collection = client.db(dbName).collection(collectionName)
-
-        let user = await collection.insertOne(document)
-
-        return (user)
+        try {
+            const collection = client.db(dbName).collection(collectionName)
+            let user = await collection.insertOne(document)
+            return (user)
+        } catch (error) {
+            throw error
+        }
     },
 
     getAllDocuments: async function (collectionName) {
-        const collection = client.db(dbName).collection(collectionName)
-
-        let documents = await collection.find("")
-        documents = await documents.toArray()
-
-        return (documents)
+        try {
+            const collection = client.db(dbName).collection(collectionName)
+            let documents = await collection.find("")
+            documents = await documents.toArray()
+            return (documents)
+        } catch (error) {
+            throw error
+        }
     },
 
     getOneDocument: async function (collectionName, query) {
@@ -36,15 +40,23 @@ module.exports = {
     },
 
     getManyDocuments: async function (collectionName, query) {
-        const collection = client.db(dbName).collection(collectionName)
-        let documents = await collection.find(query).toArray()
-        return(documents)
+        try {
+            const collection = client.db(dbName).collection(collectionName)
+            let documents = await collection.find(query).toArray()
+            return(documents)
+        } catch (error) {
+            throw error
+        }
     },
 
     getAllDocumentsPagination: async function (collectionName, offset, limit) {
-        const collection = client.db(dbName).collection(collectionName)
-        let documents = await collection.find("").skip(offset).limit(limit).toArray()
-        return documents
+        try {
+            const collection = client.db(dbName).collection(collectionName)
+            let documents = await collection.find("").skip(offset).limit(limit).toArray()
+            return documents
+        } catch (error) {
+            throw error
+        }
     }, 
 
     modifyOneDocument: async function (collectionName, query, newData) {

@@ -9,7 +9,6 @@ const errors = require('../Error Messages/ErrorMessages')
 
 // JWT secret code
 const secret = require('../../Config.json').secret
-const ErrorMessages = require('../Error Messages/ErrorMessages')
 
 const router = express.Router()
 
@@ -169,6 +168,5 @@ router.post("/remove", async (req, res) =>{
         })
     }
 })
-
 
 module.exports = router
