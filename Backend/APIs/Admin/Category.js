@@ -35,7 +35,9 @@ router.post("/create", async (req, res) =>{
                 "category" : req.body.category
             }
             try {
+                // create collection
                 await db.createCollection(data.category)
+                // Add Category to collection
                 await db.insertOneDocument(categoriesCollection, {
                     "name" : data.category
                 })

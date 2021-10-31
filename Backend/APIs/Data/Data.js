@@ -10,19 +10,19 @@ const router = express.Router()
 router.use(bodyparser.json())
 
 //GET PRODUCTS BY CATEGORY API
-router.post("/get", async (req, res) =>{
+router.post("/getbycategory", async (req, res) =>{
     
 })
 
 //SEARCH FOR PRODUCTS API
-router.post("/update", async (req, res) =>{
+router.post("/search", async (req, res) =>{
     
 })
 
-//REMOVE PRODUCT API
-router.post("/remove", async (req, res) =>{
-    
-})
 
+//GET SINGLE PRODUCT API
+router.post("/getsingleproduct", async (req, res) =>{
+
+})
 
 module.exports = router
