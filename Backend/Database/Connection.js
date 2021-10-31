@@ -49,21 +49,23 @@ module.exports = {
 
     modifyOneDocument: async function (collectionName, query, newData) {
         try {
-
             const collection = client.db(dbName).collection(collectionName)
             let updated = await collection.updateOne(query, newData)
             return(updated)
         } catch (error) {
-            console.log(error)
             throw error
         }
     },
 
     removeOneDocument: async function(collectionName, query) {
-        const collection = client.db(dbName).collection(collectionName)
-        let result = await collection.deleteOne(query)
-        if(result.deletedCount == 0){
-            throw "Could not find document"
+        try {
+            const collection = client.db(dbName).collection(collectionName)
+            let result = await collection.deleteOne(query)
+            if(result.deletedCount == 0){
+                throw "Could not find document"
+            }
+        } catch (error) {
+            throw error
         }
     },
 
