@@ -42,5 +42,11 @@ module.exports = {
             "error": 7,
             "message": "Required information missing"
         }
-    }
+    },
+    productAlreadyExists: {
+        "header": {
+            "error" : 9,
+            "message" : "Product Already Exists"
+        }
+    },
 }

@@ -26,11 +26,13 @@ module.exports = {
     },
 
     getOneDocument: async function (collectionName, query) {
-        const collection = client.db(dbName).collection(collectionName)
-
-        let documents = await collection.findOne(query)
-
-        return (documents)
+        try{
+            const collection = client.db(dbName).collection(collectionName)
+            let documents = await collection.findOne(query)
+            return (documents)
+        } catch (error) {
+            throw error;
+        }
     },
 
     getManyDocuments: async function (collectionName, query) {
