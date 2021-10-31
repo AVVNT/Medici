@@ -1,5 +1,6 @@
 const express = require('express')
 const bodyparser = require('body-parser')
+const ObjectId = require('mongodb').ObjectID
 //Has all MongoDb custom functions
 const db = require('../../Database/Connection')
 // Has all errors
@@ -48,12 +49,55 @@ router.post("/getbycategory", async (req, res) =>{
 
 //SEARCH FOR PRODUCTS API
 router.post("/search", async (req, res) =>{
-    
+    try {
+        let query = {
+            $or : [
+                {
+                    'name': {'$regex': req.body.search, '$options': 'i'}
+                },
+            ]
+        }
+        let result = await db.getManyDocuments(hallCollections, query)
+        return(res.json({
+            "header": {
+                "error": 0,
+                "message": "Searched succesfully"
+            },
+            "body": result
+        }))
+
+    } catch (error) {
+        return(res.json(errors.databaseError(error)))
+    }
 })
 
 //GET SINGLE PRODUCT API
+/*
+make sure object id is of the specified length otherwise mongo throws error
+*/
 router.post("/getsingleproduct", async (req, res) =>{
-
+    let data = {
+        "category" : req.body.category,
+        "_id" : req.body._id
+    }
+    let o_id = ObjectId(data._id)
+    try {
+        let result = await db.getOneDocument(data.category, {
+            "_id" : o_id
+        })
+        if(!result){
+            return res.json(errors.productNotFound)
+        }
+        return res.json({
+            "header": {
+                "error": 0,
+                "message": "Single Product Found"
+            },
+            "body": result
+        })
+    } catch (error) {
+        res.json(errors.databaseError(error))
+    }
 })
 
 module.exports = router

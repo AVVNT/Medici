@@ -55,4 +55,11 @@ module.exports = {
             "message" : "Product Already Exists"
         }
     },
+    productNotFound: {
+        "header": {
+            "error" : 10,
+            "message" : "Product doesn't exist"
+        }
+    },
+    
 }
