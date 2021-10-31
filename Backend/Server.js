@@ -9,6 +9,7 @@ const adminAuth = require('./APIs/Admin/Authentication')
 const adminCategory = require('./APIs/Admin/Category')
 const adminProducts = require('./APIs/Admin/Products')
 const authentication = require('./APIs/Authentication/Authentication');
+const listing = require('./APIs/Listing/Listing')
 
 db.connectDatabase()
 
@@ -21,6 +22,9 @@ app.use('/api/admin/products', adminProducts)
 
 //AUTHENTICATION APIS
 app.use('/api/authentication', authentication)
+
+//LISTING APIS
+app.use('/api/listing', listing)
 
 app.listen(PORT, () => {
   console.warn(`App listening on http://localhost:${PORT}`);

@@ -19,7 +19,6 @@ router.post("/search", async (req, res) =>{
     
 })
 
-
 //GET SINGLE PRODUCT API
 router.post("/getsingleproduct", async (req, res) =>{
 
