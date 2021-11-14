@@ -122,7 +122,6 @@ router.post("/update", async (req, res) =>{
                         }
                     }
                 )
-                console.log("HEEHEHE")
                 return res.json({
                     "header" : {
                         "error": 0,

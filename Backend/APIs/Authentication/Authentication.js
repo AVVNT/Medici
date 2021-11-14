@@ -73,11 +73,11 @@ router.post("/register", async (req, res) => {
             "email": req.body.email,
             "phone_number": req.body.phone_number,
             "address" : {
-                "house_number" : req.body.house_number,
-                "area" : req.body.area,
-                "city" : req.body.city,
-                "state" : req.body.state,
-                "country" : req.body.country
+                "house_number" : req.body.address.house_number,
+                "area" : req.body.address.area,
+                "city" : req.body.address.city,
+                "state" : req.body.address.state,
+                "country" : req.body.address.country
             },
             "password": bcrypt.hashSync(req.body.password, 10),
         }
@@ -108,7 +108,7 @@ router.post("/register", async (req, res) => {
 })
 
 //GET PROFILE API
-router.post("/getprofile", async (req, res) => {
+router.get("/getprofile", async (req, res) => {
     var token = req.headers['x-access-token'];
     if (!token)
         return(res.json(errors.jwtNoTokenProvided))
@@ -136,17 +136,7 @@ router.post("/getprofile", async (req, res) => {
                     "message": "Sucessful"
                 },
                 "body": {
-                    "first_name": req.body.first_name,
-                    "last_name": req.body.last_name,
-                    "email": req.body.email,
-                    "phone_number": req.body.phone_number,
-                    "address" : {
-                        "house_number" : req.body.house_number,
-                        "area" : req.body.area,
-                        "city" : req.body.city,
-                        "state" : req.body.state,
-                        "country" : req.body.country
-                    },
+                    profile,
                 }
             }))
 
