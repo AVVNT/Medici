@@ -15,11 +15,12 @@ router.use(bodyparser.json())
 //GET PRODUCTS BY CATEGORY API
 /*
 add error check for page 0 (page 0 is invalid), postman returns mongo "badvalue" error on page 0
+enforce page number to be a valid int between 1-n
 */
-router.post("/getbycategory", async (req, res) =>{
+router.get("/category/:category/:page", async (req, res) =>{
     let request = {
-        "category" : req.body.category,
-        "page" : req.body.page
+        "category" : req.params.category,
+        "page" : req.params.page
     }
     // check if category exists or not
     let categoryFlag = await db.getOneDocument(config.categoriesCollectionName, {
@@ -75,10 +76,10 @@ router.post("/search", async (req, res) =>{
 /*
 make sure object id is of the specified length otherwise mongo throws error
 */
-router.post("/getsingleproduct", async (req, res) =>{
+router.post("/product/:category/:id", async (req, res) =>{
     let data = {
-        "category" : req.body.category,
-        "_id" : req.body._id
+        "category" : req.params.category,
+        "_id" : req.params._id
     }
     let o_id = ObjectId(data._id)
     try {
