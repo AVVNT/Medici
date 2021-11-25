@@ -42,6 +42,10 @@
     font-weight: bold;
 }
 
+.loginButton:hover {
+    cursor: pointer;
+}
+
 .forgotPasswordContainer_p {
     text-align: end;
     font-size: 12px;

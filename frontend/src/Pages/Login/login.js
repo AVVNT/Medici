@@ -1,4 +1,4 @@
-import Forms from '../../components/UserForms/userforms';
+import UserForms from '../../components/UserForms/Userforms';
 import './login.css';
 import MediciLogo from '../../Assets/Medici_Logo.png';
 
@@ -16,7 +16,7 @@ function login() {
                             <p className="sectionOne_content_p primary-font">
                                 Welcome to Medici
                             </p>
-                            <Forms />
+                            <UserForms />
                         </div>
                     </div>
                 </div>
