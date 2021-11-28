@@ -1,0 +1,115 @@
+const express = require('express')
+const jwt = require('jsonwebtoken')
+const bodyparser = require('body-parser')
+const ObjectId = require('mongodb').ObjectID
+//Has all MongoDb custom functions
+const db = require('../../Database/Connection')
+// Has all errors
+const errors = require('../Error Messages/ErrorMessages')
+
+// JWT secret code
+const secret = require('../../Config.json').secret
+
+const router = express.Router()
+
+router.use(bodyparser.json())
+
+const prescriptionsCollection = require('../../Config.json').prescriptionsCollectionName
+
+//CREATE PRESCRIPTION API
+/*
+
+*/
+router.post("/createprescription", async (req, res) =>{
+    let token = req.headers['x-access-token'];
+    if (!token)
+        return(res.json(errors.jwtNoTokenProvided))
+    else{
+        jwt.verify(token, secret, async function (err, decoded){
+            if(err)
+                return res.json(errors.jwtAuthenticationFailed)
+
+            let o_id = new ObjectId(decoded._id)
+            let data = {
+                "user_id" : o_id,
+                "prescription_title" : req.body.prescription_title,
+                "medicines" : req.body.medicines
+            }
+            try {
+                // Add Prescription to collection
+                await db.insertOneDocument(prescriptionsCollection, data)
+                return res.json({
+                    "header": {
+                        "error": 0,
+                        "message": "Added prescription succesfully"
+                    }
+                })
+            } catch (error) {
+                return res.json(errors.databaseError(error))
+            }
+        })
+    }
+})
+
+router.get("/getprescriptions", async (req, res) => {
+    let token = req.headers['x-access-token'];
+    if (!token)
+        return(res.json(errors.jwtNoTokenProvided))
+    else{
+        jwt.verify(token, secret, async function (err, decoded){
+            if(err)
+                return res.json(errors.jwtAuthenticationFailed)
+
+            let o_id = new ObjectId(decoded._id)
+            let query = {
+                "_id" : o_id
+            }
+            try {
+                let data = await db.getManyDocuments(prescriptionsCollection, query)
+                return res.json({
+                    "header": {
+                        "error": 0,
+                        "message": "Retrieved prescription succesfully"
+                    },
+                    "body" : {
+                        data
+                    }
+                })
+            } catch (error) {
+                return res.json(errors.databaseError(error))
+            }
+        })
+    }
+})
+
+router.delete ("/deleteprescription", async (req, res) => {
+    let token = req.headers['x-access-token'];
+    if (!token)
+        return(res.json(errors.jwtNoTokenProvided))
+    else{
+        jwt.verify(token, secret, async function (err, decoded){
+            if(err)
+                return res.json(errors.jwtAuthenticationFailed)
+
+            let user_oid = decoded._id
+            let query = {
+                "_id" : o_id,
+                "user_id" : user_oid
+            }
+            try {
+                let data = await db.removeOneDocument(prescriptionsCollection, query)
+                return res.json({
+                    "header": {
+                        "error": 0,
+                        "message": "Retrieved prescription succesfully"
+                    },
+                    "body" : {
+                        data
+                    }
+                })
+            } catch (error) {
+                return res.json(errors.databaseError(error))
+            }
+        })
+    }
+})

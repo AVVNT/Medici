@@ -11,6 +11,8 @@ const errors = require('../Error Messages/ErrorMessages')
 //Collections inside of Database defined
 const userCollection = "users"
 
+const userSchema = require('../../Database/Schemas').user
+
 // JWT secret code
 const secret = require('../../Config.json').secret
 
@@ -81,6 +83,8 @@ router.post("/register", async (req, res) => {
             },
             "password": bcrypt.hashSync(req.body.password, 10),
         }
+        // let temp = new userSchema(req.body.first_name)
+        // console.log(temp)
     } catch (error) {
         res.json(errors.informationMissing)
     }
