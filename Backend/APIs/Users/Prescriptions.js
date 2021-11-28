@@ -32,7 +32,7 @@ router.post("/createprescription", async (req, res) =>{
             let o_id = new ObjectId(decoded._id)
             let data = {
                 "user_id" : o_id,
-                "prescription_title" : req.body.prescription_title,
+                "title" : req.body.title,
                 "medicines" : req.body.medicines
             }
             try {
@@ -51,7 +51,7 @@ router.post("/createprescription", async (req, res) =>{
     }
 })
 
-router.get("/getprescriptions", async (req, res) => {
+router.get("/getallprescriptions", async (req, res) => {
     let token = req.headers['x-access-token'];
     if (!token)
         return(res.json(errors.jwtNoTokenProvided))
@@ -60,16 +60,16 @@ router.get("/getprescriptions", async (req, res) => {
             if(err)
                 return res.json(errors.jwtAuthenticationFailed)
 
-            let o_id = new ObjectId(decoded._id)
+            let user_o_id = new ObjectId(decoded._id)
             let query = {
-                "_id" : o_id
+                "user_id" : user_o_id
             }
             try {
                 let data = await db.getManyDocuments(prescriptionsCollection, query)
                 return res.json({
                     "header": {
                         "error": 0,
-                        "message": "Retrieved prescription succesfully"
+                        "message": "Retrieved all prescriptions of user succesfully"
                     },
                     "body" : {
                         data
@@ -82,7 +82,7 @@ router.get("/getprescriptions", async (req, res) => {
     }
 })
 
-router.delete ("/deleteprescription", async (req, res) => {
+router.post("/getprescription", async (req, res) => {
     let token = req.headers['x-access-token'];
     if (!token)
         return(res.json(errors.jwtNoTokenProvided))
@@ -91,17 +91,18 @@ router.delete ("/deleteprescription", async (req, res) => {
             if(err)
                 return res.json(errors.jwtAuthenticationFailed)
 
-            let user_oid = decoded._id
+            let user_o_id = new ObjectId(decoded._id)
+            let prescription_id = new ObjectId(req.body._id)
             let query = {
-                "_id" : o_id,
-                "user_id" : user_oid
+                "_id" : prescription_id,
+                "user_id" : user_o_id
             }
             try {
-                let data = await db.removeOneDocument(prescriptionsCollection, query)
+                let data = await db.getOneDocument(prescriptionsCollection, query)
                 return res.json({
                     "header": {
                         "error": 0,
-                        "message": "Retrieved prescription succesfully"
+                        "message": "Retrieved one prescription succesfully"
                     },
                     "body" : {
                         data
@@ -113,3 +114,40 @@ router.delete ("/deleteprescription", async (req, res) => {
         })
     }
 })
+
+router.post("/deleteprescription", async (req, res) => {
+    let token = req.headers['x-access-token'];
+    if (!token)
+        return(res.json(errors.jwtNoTokenProvided))
+    else{
+        jwt.verify(token, secret, async function (err, decoded){
+            if(err)
+                return res.json(errors.jwtAuthenticationFailed)
+
+            let user_o_id = new ObjectId(decoded._id)
+            let prescription_id = new ObjectId(req.body._id)
+            let query = {
+                "_id" : prescription_id,
+                "user_id" : user_o_id
+            }
+            try {
+                let data = await db.removeOneDocument(prescriptionsCollection, query)
+                return res.json({
+                    "header": {
+                        "error": 0,
+                        "message": "Deleted prescription succesfully"
+                    },
+                    "body" : {
+                        data
+                    }
+                })
+            } catch (error) {
+                return res.json(errors.databaseError(error))
+            }
+        })
+    }
+})
+
+//modify prescription
+
+module.exports = router
