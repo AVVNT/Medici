@@ -14,7 +14,7 @@ const router = express.Router()
 
 router.use(bodyparser.json())
 
-const categoriesCollection = "Categories"
+const categoriesCollection = require('../../Config.json').categoriesCollectionName
 
 //CREATE CATEGORY API
 /*
@@ -113,6 +113,22 @@ router.post("/remove", async (req, res) =>{
             //ADD CODE HERER\
         })
     }
+})
+
+router.get("/getall", async (req, res) =>{
+    try {
+        let data = await db.getAllDocuments(categoriesCollection)
+        return res.json({
+            "header": {
+                "error": 0,
+                "message": "All categories retireved succesfully"
+            },
+            "data": data
+        })
+    } catch (error) {
+        res.json(errors.databaseError(error))
+    }
+
 })
 
 module.exports = router
