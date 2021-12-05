@@ -3,8 +3,9 @@ import ReactDOM from 'react-dom';
 import $ from 'jquery';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
-// import Login from './Pages/Login/login';
+import Login from './Pages/Login/login';
 import Home from './Pages/Home/home';
+import AdminDashboard from './Pages/AdminDashboard/AdminDashboard';
 
 
 ReactDOM.render(

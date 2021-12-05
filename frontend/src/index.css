@@ -21,3 +21,9 @@ code {
 .primary-font {
   font-family: 'Nunito', sans-serif;
 }
+
+.secondary-font {
+  font-family: 'Roboto', sans-serif;
+  font-size: 17px;
+  font-weight: 300;
+}
