@@ -1,0 +1,30 @@
+.dashboard_container {
+    min-height: 100vh;
+    display: flex;
+}
+
+.dashboard_navigation_container {
+    width: 20%;
+    border-right: 1px solid grey;
+}
+
+.dashboard_content_container {
+    width: 80%;
+}
+
+.navigation_list {
+    list-style: none;
+}
+
+.navigation_list_item {
+    font-size: 20px;
+    margin: 20px 0;
+}
+
+.dashboard_content_container {
+    padding: 5%;
+}
+
+hr {
+    border-top: 1px solid grey;
+}
