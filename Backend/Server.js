@@ -5,6 +5,8 @@ const db = require('./Database/Connection')
 
 const PORT = process.env.PORT || 3000;
 
+require('./CRON/cron')
+
 const adminAuth = require('./APIs/Admin/Authentication')
 const adminCategory = require('./APIs/Admin/Category')
 const adminProducts = require('./APIs/Admin/Products')

@@ -36,10 +36,10 @@ router.post("/create", async (req, res) =>{
             }
             try {
                 // create collection
-                await db.createCollection(data.category)
+                await db.createCollection(data.category.toLowerCase())
                 // Add Category to collection
                 await db.insertOneDocument(categoriesCollection, {
-                    "name" : data.category
+                    "name" : data.category.toLowerCase()
                 })
                 return res.json({
                     "header": {
@@ -78,7 +78,7 @@ router.post("/edit", async (req, res) =>{
                 }
             }
             try {
-                await db.renameCollection(data.old_category.name, data.new_category.name)
+                await db.renameCollection(data.old_category.name.toLowerCase(), data.new_category.name.toLowerCase())
                 await db.modifyOneDocument(categoriesCollection, 
                     {"name" : data.old_category.name}, 
                     {

@@ -33,7 +33,18 @@ router.post("/createprescription", async (req, res) =>{
             let data = {
                 "user_id" : o_id,
                 "title" : req.body.title,
-                "medicines" : req.body.medicines
+                "medicines" : req.body.medicines,
+                "repeat" : req.body.repeat,
+                "next_date" : new Date()
+            }
+            if(data.repeat === "weekly"){
+                data.next_date = data.next_date.addDays(7)
+            }
+            else if(data.repeat === "biweekly"){
+                data.next_date = data.next_date.addDays(3)
+            }
+            else if(data.repeat === "monthly"){
+                data.next_date = data.next_date.addDays(30)
             }
             try {
                 // Add Prescription to collection
@@ -50,6 +61,12 @@ router.post("/createprescription", async (req, res) =>{
         })
     }
 })
+
+Date.prototype.addDays = function(days) {
+    var date = new Date(this.valueOf());
+    date.setDate(date.getDate() + days);
+    return date;
+}
 
 router.get("/getallprescriptions", async (req, res) => {
     let token = req.headers['x-access-token'];

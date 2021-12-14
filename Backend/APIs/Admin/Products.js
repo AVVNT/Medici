@@ -32,11 +32,11 @@ router.post("/add", async (req, res) =>{
                 "manufacturer" : req.body.manufacturer,
                 "stock" : req.body.stock,
                 "price" : req.body.price,
-                "discounted_price" : req.body.discounted_price,
+                "details" : req.body.details,
                 "short_description" : req.body.short_description,
                 "long_description" : req.body.long_description,
                 "product_image" : req.body.product_image,
-                "category" : req.body.category
+                "category" : req.body.category.toLowerCase()
             }
             try{
                 // Check if Product Exists
@@ -53,7 +53,7 @@ router.post("/add", async (req, res) =>{
                     "manufacturer" : data.manufacturer,
                     "stock" : data.stock,
                     "price" : data.price,
-                    "discounted_price" : data.discounted_price,
+                    "details" : data.details,
                     "short_description" : data.short_description,
                     "long_description" : data.long_description,
                     "product_image" : data.product_image
