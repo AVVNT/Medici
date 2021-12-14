@@ -9,7 +9,7 @@ const db = require('../../Database/Connection')
 const errors = require('../Error Messages/ErrorMessages')
 
 //Collections inside of Database defined
-const collection = "Admins"
+const collection = require('../../Config.json').adminsCategoryCollectionName
 
 // JWT secret code
 const secret = require('../../Config.json').secret
@@ -17,9 +17,6 @@ const secret = require('../../Config.json').secret
 const router = express.Router()
 
 router.use(bodyparser.json())
-
-//SESSION CREATE API 
-// db.connectDatabase()
 
 //LOGIN API
 router.post("/login", async (req, res) => {

@@ -9,7 +9,7 @@ const db = require('../../Database/Connection')
 const errors = require('../Error Messages/ErrorMessages')
 
 //Collections inside of Database defined
-const userCollection = "users"
+const userCollection = require('../../Config.json').usersCategoryCollectionName
 
 const userSchema = require('../../Database/Schemas').user
 
