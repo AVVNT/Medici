@@ -1,6 +1,8 @@
 {
     "secret" : "abdullah",
     "dbName" : "Medici",
-    "categoriesCollectionName" : "Categories",
-    "prescriptionsCollectionName" : "Prescriptions"
+    "adminsCategoryCollectionName" : "admins",
+    "usersCategoryCollectionName" : "users",
+    "categoriesCollectionName" : "categories",
+    "prescriptionsCollectionName" : "prescriptions"
 }
