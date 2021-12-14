@@ -1,17 +1,17 @@
 import './home.css';
 import { Splide, SplideSlide } from '@splidejs/react-splide';
 import '@splidejs/splide/dist/css/themes/splide-skyblue.min.css';
-
+import nestleLogo from '../../Assets/Nestle_logo_PNG4.png'
 
 function home() {
     return (
         <div>
             <Splide options={{
                 type: 'loop',
-                pagination: 'false',
+                pagination: false,
                 height: '50vh',
                 speed: '1000',
-                autoplay: 'true',
+                autoplay: true,
                 interval: '5000',
             }}>
                 <SplideSlide className='splide__slide1'>
@@ -139,7 +139,164 @@ function home() {
 
                     </div>
 
+                    <div className='immunityboastercntr__productcntr-col immunityboastercntr__productcntr-col-lastcol'>
+
+                    </div>
+                </div>
+            </div>
+
+            <div className='immunityboastercntr'>
+                <div className='immunityboastercntr__headingcntr'>
+                    <h3 className='immunityboastercntr__headingcntr-heading'>
+                        Immunity Boaster
+                    </h3>
+                </div>
+                <div className='immunityboastercntr__productcntr'>
                     <div className='immunityboastercntr__productcntr-col'>
+
+                    </div>
+
+                    <div className='immunityboastercntr__productcntr-col'>
+
+                    </div>
+
+                    <div className='immunityboastercntr__productcntr-col'>
+
+                    </div>
+
+                    <div className='immunityboastercntr__productcntr-col'>
+
+                    </div>
+
+                    <div className='immunityboastercntr__productcntr-col immunityboastercntr__productcntr-col-lastcol'>
+
+                    </div>
+                </div>
+            </div>
+
+            <div className='immunityboastercntr'>
+                <div className='immunityboastercntr__headingcntr'>
+                    <h3 className='immunityboastercntr__headingcntr-heading'>
+                        Immunity Boaster
+                    </h3>
+                </div>
+                <div className='immunityboastercntr__productcntr'>
+                    <div className='immunityboastercntr__productcntr-col'>
+
+                    </div>
+
+                    <div className='immunityboastercntr__productcntr-col'>
+
+                    </div>
+
+                    <div className='immunityboastercntr__productcntr-col'>
+
+                    </div>
+
+                    <div className='immunityboastercntr__productcntr-col'>
+
+                    </div>
+
+                    <div className='immunityboastercntr__productcntr-col immunityboastercntr__productcntr-col-lastcol'>
+
+                    </div>
+                </div>
+            </div>
+
+            <div className='immunityboastercntr'>
+                <div className='immunityboastercntr__headingcntr'>
+                    <h3 className='immunityboastercntr__headingcntr-heading'>
+                        Immunity Boaster
+                    </h3>
+                </div>
+                <div className='immunityboastercntr__productcntr'>
+                    <div className='immunityboastercntr__productcntr-col'>
+
+                    </div>
+
+                    <div className='immunityboastercntr__productcntr-col'>
+
+                    </div>
+
+                    <div className='immunityboastercntr__productcntr-col'>
+
+                    </div>
+
+                    <div className='immunityboastercntr__productcntr-col'>
+
+                    </div>
+
+                    <div className='immunityboastercntr__productcntr-col immunityboastercntr__productcntr-col-lastcol'>
+
+                    </div>
+                </div>
+            </div>
+
+            <Splide options={{
+                type: 'loop',
+                perPage: 3,
+                perMove: 1,
+                pagination: false,
+            }}>
+
+                <SplideSlide className='slidelogo'>
+                    <img src={nestleLogo} alt='Logo Of Nestle' width="130px" height="130px" />
+                </SplideSlide>
+
+                <SplideSlide className='slidelogo'>
+                    <img src={nestleLogo} alt='Logo Of Nestle' width="130px" height="130px" />
+                </SplideSlide>
+
+                <SplideSlide className='slidelogo'>
+                    <img src={nestleLogo} alt='Logo Of Nestle' width="130px" height="130px" />
+                </SplideSlide>
+
+                <SplideSlide className='slidelogo'>
+                    <img src={nestleLogo} alt='Logo Of Nestle' width="130px" height="130px" />
+                </SplideSlide>
+
+                <SplideSlide className='slidelogo'>
+                    <img src={nestleLogo} alt='Logo Of Nestle' width="130px" height="130px" />
+                </SplideSlide>
+
+                <SplideSlide className='slidelogo'>
+                    <img src={nestleLogo} alt='Logo Of Nestle' width="130px" height="130px" />
+                </SplideSlide>
+
+                <SplideSlide className='slidelogo'>
+                    <img src={nestleLogo} alt='Logo Of Nestle' width="130px" height="130px" />
+                </SplideSlide>
+
+                <SplideSlide className='slidelogo'>
+                    <img src={nestleLogo} alt='Logo Of Nestle' width="130px" height="130px" />
+                </SplideSlide>
+
+                <SplideSlide className='slidelogo'>
+                    <img src={nestleLogo} alt='Logo Of Nestle' width="130px" height="130px" />
+                </SplideSlide>
+
+            </Splide>
+
+            <div className='scheduleyourmedscntr'>
+                <div className='scheduleyourmedcntr__subcntr'>
+                    <div className='scheduleyourmedcntr__subcntr-conentcntr'>
+                        <p>
+                            This is a Dummy Text
+                        </p>
+                        <p>
+                            This is a Dummy Text
+                        </p>
+                        <p>
+                            This is a Dummy Text
+                        </p>
+                        <p>
+                            This is a Dummy Text
+                        </p>
+                        <p>
+                            This is a Dummy Text
+                        </p>
+                    </div>
+                    <div className='scheduleyourmedcntr__subcntr-imagecontr'>
 
                     </div>
                 </div>
