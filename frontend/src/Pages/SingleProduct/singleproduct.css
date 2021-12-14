@@ -1,0 +1,27 @@
+.body {
+    max-width: 80%;
+    margin: 5% auto;
+}
+
+.breadcrumbs__icon-greaterthan {
+    transform: rotate(270deg);
+    margin: auto 0;
+}
+
+.breadcrumb__item {
+    margin-right: 5px;
+}
+
+.productdetailscontainer {
+    display: flex;
+    margin: 5% 0;
+}
+
+.productdetailscontainer__image {
+    width: 50%;
+    text-align: center;
+}
+
+.productdetailscontainer__information {
+    width: 50%;
+}

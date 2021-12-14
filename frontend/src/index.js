@@ -6,11 +6,12 @@ import reportWebVitals from './reportWebVitals';
 import Login from './Pages/Login/login';
 import Home from './Pages/Home/home';
 import AdminDashboard from './Pages/AdminDashboard/AdminDashboard';
+import SingleProduct from './Pages/SingleProduct/singleproduct';
 
 
 ReactDOM.render(
   <React.StrictMode>
-    <Home />
+    <SingleProduct />
   </React.StrictMode>,
   document.getElementById('root')
 );

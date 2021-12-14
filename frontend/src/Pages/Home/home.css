@@ -41,6 +41,7 @@
     height: 100%;
 }
 
+
 .howyoufeelingcntr__firstrow {
     display: flex;
     flex-direction: row;
@@ -86,7 +87,37 @@
 }
 
 .immunityboastercntr__productcntr-col {
-    width: 300px;
-    height: 500px;
+    width: 15%;
+    height: 45vh;
     border: 1px solid black;
+}
+
+.immunityboastercntr__productcntr-col-lastcol {
+    background-color: aqua;
+}
+
+.slidelogo {
+    text-align: center;
+}
+
+.scheduleyourmedscntr {
+    min-height: 30vh;
+}
+
+.scheduleyourmedcntr__subcntr {
+    background-color: cadetblue;
+    display: flex;
+    flex-direction: row;
+}
+
+.scheduleyourmedcntr__subcntr-conentcntr {
+    width: 40%;
+}
+
+.scheduleyourmedcntr__subcntr-imagecontr {
+    width: 60%;
+    background-image: url('../../Assets/sliderimage5.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
