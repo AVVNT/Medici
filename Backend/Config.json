@@ -4,5 +4,6 @@
     "adminsCategoryCollectionName" : "admins",
     "usersCategoryCollectionName" : "users",
     "categoriesCollectionName" : "categories",
-    "prescriptionsCollectionName" : "prescriptions"
+    "prescriptionsCollectionName" : "prescriptions",
+    "ordersCollectionName" : "orders"
 }
