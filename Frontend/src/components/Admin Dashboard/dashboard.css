@@ -1,0 +1,26 @@
+.container {
+    display: flex;
+}
+
+.containerFormSection {
+    width: 60%;
+}
+
+.containerPreviewSection {
+    width: 40%;
+    border-left: 1px solid gray;
+    min-height: 50vh;
+}
+
+.form {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.col-1 {
+    width: 50%;
+}
+
+.col-2 {
+    width: 50%;
+}
