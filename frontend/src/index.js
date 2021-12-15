@@ -1,5 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import {
+  BrowserRouter,
+  Routes,
+  Route
+} from "react-router-dom";
+
 import $ from 'jquery';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
@@ -11,7 +17,14 @@ import SingleProduct from './Pages/SingleProduct/singleproduct';
 
 ReactDOM.render(
   <React.StrictMode>
-    <SingleProduct />
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="login" element={<Login />} />
+        <Route path="dashboard" element={<AdminDashboard />} />
+        <Route path="product" element={<SingleProduct />} />
+      </Routes>
+    </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')
 );
