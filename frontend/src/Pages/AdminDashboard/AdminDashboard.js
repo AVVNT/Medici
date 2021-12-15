@@ -1,6 +1,6 @@
 import './AdminDashboard.css';
 import MediciLogo from '../../Assets/Medici_Logo.png';
-import AddProduct from '../../components/Products/AddProduct';
+import AddProduct from '../../components/Admin Dashboard/AddProduct';
 
 function AdminDashboard() {
     return (

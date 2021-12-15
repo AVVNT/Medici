@@ -18,8 +18,15 @@ async function placeOrdersFromPrescription(){
     let prescriptions = await db.getAllDocuments(collection)
     prescriptions.forEach(element => {
         let diff = element.next_date - currentDate
-        console.log(new Date(diff))
+        let diffDays = Math.ceil(diff/(1000 * 60 * 60 * 24))
+        if(diffDays == 1){
+
+        }
     });
+}
+
+async function placeOrder(){
+    
 }
 
 

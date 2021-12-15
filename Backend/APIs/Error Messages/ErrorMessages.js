@@ -61,5 +61,10 @@ module.exports = {
             "message" : "Product doesn't exist"
         }
     },
-    
+    permissionDenied: {
+        "header": {
+            "error" : 11,
+            "message" : "Permission denied"
+        }
+    },
 }
