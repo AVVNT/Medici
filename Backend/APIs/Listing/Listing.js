@@ -17,7 +17,7 @@ router.use(bodyparser.json())
 add error check for page 0 (page 0 is invalid), postman returns mongo "badvalue" error on page 0
 enforce page number to be a valid int between 1-n
 */
-router.get("/category/:category/:page", async (req, res) =>{
+router.get("/:category/:page", async (req, res) =>{
     let request = {
         "category" : req.params.category,
         "page" : req.params.page

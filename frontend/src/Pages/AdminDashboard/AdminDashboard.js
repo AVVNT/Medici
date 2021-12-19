@@ -1,6 +1,7 @@
 import './AdminDashboard.css';
 import MediciLogo from '../../Assets/Medici_Logo.png';
 import AddProduct from '../../components/Admin Dashboard/AddProduct';
+import RemoveProduct from '../../components/Admin Dashboard/RemoveProduct';
 import { useState } from 'react';
 
 function AdminDashboard() {
@@ -72,6 +73,9 @@ function AdminDashboard() {
                     <hr />
                     {selectedTab === "add product" && (
                         <AddProduct />
+                    )}
+                    {selectedTab === "remove product" && (
+                        <RemoveProduct />
                     )}
                 </div>
             </div>

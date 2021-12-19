@@ -149,12 +149,12 @@ router.post("/remove", async (req, res) =>{
                 return res.json(errors.jwtAuthenticationFailed)
 
             let data = {
-                "collection_name" : req.body.collection_name,
+                "category" : req.body.category,
                "_id" : req.body._id
             }
             try{
                 let o_id = ObjectId(data._id)
-                await db.removeOneDocument(data.collection_name,{
+                await db.removeOneDocument(data.category,{
                     "_id" : o_id
                 })
                 return res.json({
