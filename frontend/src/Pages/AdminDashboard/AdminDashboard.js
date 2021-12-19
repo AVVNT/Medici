@@ -1,8 +1,11 @@
 import './AdminDashboard.css';
 import MediciLogo from '../../Assets/Medici_Logo.png';
 import AddProduct from '../../components/Admin Dashboard/AddProduct';
+import { useState } from 'react';
 
 function AdminDashboard() {
+    const [selectedTab, setSelectedTab] = useState("")
+
     return (
         <div className="dashboard_body primary-font">
             <div className="dashboard_container">
@@ -17,13 +20,46 @@ function AdminDashboard() {
                                     Dashboard
                                 </li>
                                 <li className="navigation_list_item">
-                                    Add Product
+                                    <button onClick={()=>{
+                                        setSelectedTab("add product")
+                                    }}>
+                                        Add Product
+                                    </button>
                                 </li>
                                 <li className="navigation_list_item">
-                                    Remove Product
+                                    <button onClick={()=>{
+                                        setSelectedTab("remove product")
+                                    }}>
+                                        Remove Product
+                                    </button>
                                 </li>
                                 <li className="navigation_list_item">
-                                    Update Product
+                                    <button onClick={()=>{
+                                        setSelectedTab("update product")
+                                    }}>
+                                        Update Product
+                                    </button>
+                                </li>
+                                <li className="navigation_list_item">
+                                    <button onClick={()=>{
+                                        setSelectedTab("add category")
+                                    }}>
+                                        Add Category
+                                    </button>
+                                </li>
+                                <li className="navigation_list_item">
+                                    <button onClick={()=>{
+                                        setSelectedTab("remove category")
+                                    }}>
+                                        Remove Category
+                                    </button>
+                                </li>
+                                <li className="navigation_list_item">
+                                    <button onClick={()=>{
+                                        setSelectedTab("edit category")
+                                    }}>
+                                        Edit Category
+                                    </button>
                                 </li>
                             </ul>
                         </div>
@@ -34,7 +70,9 @@ function AdminDashboard() {
                         Dashboard
                     </h3>
                     <hr />
-                    <AddProduct />
+                    {selectedTab === "add product" && (
+                        <AddProduct />
+                    )}
                 </div>
             </div>
         </div>

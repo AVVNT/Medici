@@ -1,4 +1,4 @@
-const { MongoClient } = require('mongodb');
+const { MongoClient, MongoInvalidArgumentError } = require('mongodb');
 const uri = "mongodb+srv://root:9TXLxnV51lOV7IQr@cluster0.nythh.mongodb.net/Medici?retryWrites=true&w=majority";
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
 const dbName = "Medici"
@@ -13,8 +13,14 @@ module.exports = {
             const collection = client.db(dbName).collection(collectionName)
             let user = await collection.insertOne(document)
             return (user)
-        } catch (error) {
-            throw error
+        } 
+        catch (error) {
+            if(error instanceof MongoInvalidArgumentError){
+                throw "Invalid argument"
+            }
+            else{
+                throw error
+            }
         }
     },
 
@@ -24,8 +30,14 @@ module.exports = {
             let documents = await collection.find("")
             documents = await documents.toArray()
             return (documents)
-        } catch (error) {
-            throw error
+        } 
+        catch (error) {
+            if(error instanceof MongoInvalidArgumentError){
+                throw "Invalid argument"
+            }
+            else{
+                throw error
+            }
         }
     },
 
@@ -34,8 +46,14 @@ module.exports = {
             const collection = client.db(dbName).collection(collectionName)
             let documents = await collection.findOne(query)
             return (documents)
-        } catch (error) {
-            throw error;
+        }
+        catch (error) {
+            if(error instanceof MongoInvalidArgumentError){
+                throw "Invalid argument"
+            }
+            else{
+                throw error
+            }
         }
     },
 
@@ -44,8 +62,14 @@ module.exports = {
             const collection = client.db(dbName).collection(collectionName)
             let documents = await collection.find(query).toArray()
             return(documents)
-        } catch (error) {
-            throw error
+        } 
+        catch (error) {
+            if(error instanceof MongoInvalidArgumentError){
+                throw "Invalid argument"
+            }
+            else{
+                throw error
+            }
         }
     },
 
@@ -54,8 +78,14 @@ module.exports = {
             const collection = client.db(dbName).collection(collectionName)
             let documents = await collection.find("").skip(offset).limit(limit).toArray()
             return documents
-        } catch (error) {
-            throw error
+        } 
+        catch (error) {
+            if(error instanceof MongoInvalidArgumentError){
+                throw "Invalid argument"
+            }
+            else{
+                throw error
+            }
         }
     }, 
 
@@ -64,8 +94,14 @@ module.exports = {
             const collection = client.db(dbName).collection(collectionName)
             let updated = await collection.updateOne(query, newData)
             return(updated)
-        } catch (error) {
-            throw error
+        } 
+        catch (error) {
+            if(error instanceof MongoInvalidArgumentError){
+                throw "Invalid argument"
+            }
+            else{
+                throw error
+            }
         }
     },
 
@@ -76,24 +112,42 @@ module.exports = {
             if(result.deletedCount == 0){
                 throw "Could not find document"
             }
-        } catch (error) {
-            throw error
+        } 
+        catch (error) {
+            if(error instanceof MongoInvalidArgumentError){
+                throw "Invalid argument"
+            }
+            else{
+                throw error
+            }
         }
     },
 
     createCollection: async function(collectionName) {
         try {
             await client.db(dbName).createCollection(collectionName)
-        } catch (error) {
-            throw error
+        } 
+        catch (error) {
+            if(error instanceof MongoInvalidArgumentError){
+                throw "Invalid argument"
+            }
+            else{
+                throw error
+            }
         }
     },
 
     renameCollection: async function(oldName, newName) {
         try {
             await client.db(dbName).collection(oldName).rename(newName)
-        } catch (error) {
-            throw error
+        } 
+        catch (error) {
+            if(error instanceof MongoInvalidArgumentError){
+                throw "Invalid argument"
+            }
+            else{
+                throw error
+            }
         }
     }
 }

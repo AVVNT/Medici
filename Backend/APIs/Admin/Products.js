@@ -47,6 +47,7 @@ router.post("/add", async (req, res) =>{
                     return res.json(errors.productAlreadyExists)
                 }
                 //Add product to Category
+                console.log(data)
                 await db.insertOneDocument(data.category, {
                     "sku" : data.sku,
                     "name" : data.name,
@@ -65,6 +66,7 @@ router.post("/add", async (req, res) =>{
                     }
                 })
             } catch (error) {
+                console.log(error);
                 res.json(errors.databaseError(error))
             }
         })

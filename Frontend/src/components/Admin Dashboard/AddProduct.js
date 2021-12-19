@@ -16,6 +16,11 @@ export default function AddProduct() {
         category: ""
     })
     const [categories, setCategories] = useState([])
+    const [message, setMessage] = useState("")
+    const headers = {
+        'Content-Type': 'application/json',
+        'x-access-token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTdkOGUwYTM2YjM5YmE2MzVjZTI5MzQiLCJpYXQiOjE2Mzk5MjY4OTEsImV4cCI6MTY0MDAxMzI5MX0.kY-joLUoAssNHCAkINf2USZZPtK4TgUvleYpkT_3I7g'
+    }
 
     useEffect(() => {
         async function fetchMyAPI() {
@@ -31,8 +36,13 @@ export default function AddProduct() {
 
     async function getCategories(){
         let response = await axios.get('http://localhost:3000/api/admin/category/getall')
-        console.log(response.data)
         setCategories(response.data.data)
+    }
+
+    async function addProduct(){
+        setMessage("ADDING!!!")
+        let response = await axios.post('http://localhost:3000/api/admin/products/add', data, {headers: headers})
+        setMessage(response.data.header.message)
     }
 
     return (
@@ -78,11 +88,12 @@ export default function AddProduct() {
                             name='category'
                             value={data.category}
                             onChange={handleChange}
+                            // defaultValue={categories[0]}
                         >
                             {categories.map(item => (
                                 <option
                                     key={item._id}
-                                    value={item._id}
+                                    value={item.name}
                                 >
                                     {item.name}
                                 </option>
@@ -97,13 +108,14 @@ export default function AddProduct() {
                         <button
                             type='button'
                             onClick={async()=>{
-                                console.log(data)
+                                await addProduct()
                             }} 
                         >
                             ADD PRODUCT
                         </button>
                     </div>
                 </form>
+                {message === "" ? <></> : <h1>{message}</h1>}
             </div>
             <div className="containerPreviewSection">
 
