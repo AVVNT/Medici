@@ -56,6 +56,29 @@ function singleproduct() {
                     </div>
                 </div>
             </div>
+            <div className="productlongdetailscontainer">
+                <div className="productlongdetailssubcontainer">
+                    <h2>
+                        CaC-1000 Plus Tablets Orange T-20 is composed of
+                    </h2>
+                    <h5>
+                        Calcium Lactate Gluconate, Calcium Carbonate, Vitamin C , Vitamin D3, Vitamin B8
+                    </h5>   
+                    <hr/>
+                    <h2>
+                        Belongs to the category
+                    </h2>
+                    <h5>
+                        Supplement
+                    </h5>   
+                    <hr />
+                </div>
+            </div>
+            <div className="productsummarycontainer">
+                <div className="productsummarysubcontainer">
+                    
+                </div>
+            </div>
         </div>
     );
 }

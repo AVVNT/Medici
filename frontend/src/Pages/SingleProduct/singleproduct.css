@@ -25,3 +25,9 @@
 .productdetailscontainer__information {
     width: 50%;
 }
+
+.productlongdetailssubcontainer{
+    box-shadow: 0 -1px 0 2px gray;
+    min-height: 20vh;
+    border: 1px solid black;
+}
