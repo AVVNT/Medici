@@ -23,6 +23,7 @@ export default function UpdateProduct() {
 
     // ADD PAGINATION FEATURE
     useEffect(() => {
+        setSelectedProduct(null)
         async function fetchMyAPI() {
             await getProducts(selectedCategory, 1)
         }
