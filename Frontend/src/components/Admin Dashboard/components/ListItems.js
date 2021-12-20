@@ -1,6 +1,6 @@
 import Item from "./Item"
 
-export default function ListItems({dataArray, category, buttonFunction, buttonText}){
+export default function ListItems({dataArray, category, buttonFunction, buttonText, setItem}){
     return(
         <div>
             {dataArray.map(item => (
@@ -10,6 +10,7 @@ export default function ListItems({dataArray, category, buttonFunction, buttonTe
                     category={category}
                     buttonFunction={buttonFunction}
                     buttonText={buttonText}
+                    setItem={setItem}
                 />
             ))}
         </div>

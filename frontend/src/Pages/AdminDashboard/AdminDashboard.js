@@ -3,6 +3,7 @@ import MediciLogo from '../../Assets/Medici_Logo.png';
 import AddProduct from '../../components/Admin Dashboard/AddProduct';
 import RemoveProduct from '../../components/Admin Dashboard/RemoveProduct';
 import { useState } from 'react';
+import UpdateProduct from '../../components/Admin Dashboard/UpdateProduct';
 
 function AdminDashboard() {
     const [selectedTab, setSelectedTab] = useState("")
@@ -76,6 +77,9 @@ function AdminDashboard() {
                     )}
                     {selectedTab === "remove product" && (
                         <RemoveProduct />
+                    )}
+                    {selectedTab === "update product" && (
+                        <UpdateProduct />
                     )}
                 </div>
             </div>

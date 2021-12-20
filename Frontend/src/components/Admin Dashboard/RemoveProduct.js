@@ -6,6 +6,7 @@ import axios from 'axios';
 export default function RemoveProduct() {
     const [categories, setCategories] = useState([])
     const [selectedCategory, setSelectedCategory] = useState(null)
+    const [selectedProduct, setSelectedProduct] = useState(null)
     const [products, setProducts] = useState([])
     const [message, setMessage] = useState("")
     const headers = {
@@ -76,6 +77,7 @@ export default function RemoveProduct() {
                     category={selectedCategory}
                     buttonFunction={removeProduct}
                     buttonText="Remove"
+                    setItem={setSelectedProduct}
                 />}
                 {message === "" ? <></> : <h1>{message}</h1>}
             </div>

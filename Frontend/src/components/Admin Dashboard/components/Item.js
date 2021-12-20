@@ -1,4 +1,4 @@
-export default function Item({data, category, buttonFunction, buttonText}){
+export default function Item({data, category, buttonFunction, buttonText, setItem}){
     return(
         <div>
             <p>
@@ -7,7 +7,12 @@ export default function Item({data, category, buttonFunction, buttonText}){
             <button
                 type='button'
                 onClick={()=>{
-                    buttonFunction(category, data._id)
+                    if(buttonFunction){
+                        buttonFunction(category, data._id)
+                    } 
+                    if(setItem){
+                        setItem(data)
+                    }
                 }}
             >
                 {buttonText}

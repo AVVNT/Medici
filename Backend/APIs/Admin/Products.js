@@ -89,7 +89,7 @@ router.post("/update", async (req, res) =>{
             if(err)
                 return res.json(errors.jwtAuthenticationFailed)
             let data = {
-               "collection_name" : req.body.collection_name,
+               "category" : req.body.category,
                "_id" : req.body._id,
                "new_data" : {
                     "sku" : req.body.new_data.sku,
@@ -106,7 +106,7 @@ router.post("/update", async (req, res) =>{
             }
             try {
                 let o_id = ObjectId(data._id)
-                await db.modifyOneDocument(data.collection_name, {
+                await db.modifyOneDocument(data.category, {
                     "_id" : o_id
                 }, 
                     {
