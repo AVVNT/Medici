@@ -41,7 +41,7 @@ export default function Orders() {
             setFilteredOrders(orders);
         } else {
             let newArray = orders.filter(function (el) {
-                return String(el._id).includes(searchFilter);
+                return String(el._id).includes(searchFilter) || String(el.address).includes(searchFilter) || String(el.phone_number).includes(searchFilter);
             });
             setFilteredOrders(newArray);
         }

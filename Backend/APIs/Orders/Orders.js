@@ -33,6 +33,7 @@ router.post("/placeorder", async (req, res) =>{
             let data = {
                 "user_id" : o_id,
                 "address" : req.body.address,
+                "phone_number" : req.body.phone_number,
                 "order" : req.body.order,
                 "details" : {
                     "status" : "order placed",
