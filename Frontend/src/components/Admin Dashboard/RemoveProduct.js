@@ -9,17 +9,18 @@ export default function RemoveProduct() {
     const [selectedProduct, setSelectedProduct] = useState(null)
     const [products, setProducts] = useState([])
     const [message, setMessage] = useState("")
-    const [headers, setHeaders] = useState({})
+    // const [headers, setHeaders] = useState({})
+    let headers = {}
 
     useEffect(() => {
         async function fetchMyAPI() {
             await getCategories()
         }
 
-        setHeaders({
+        headers = {
             'Content-Type': 'application/json',
             'x-access-token': sessionStorage.getItem('x-token')
-        })
+        }
 
         fetchMyAPI()
     }, [])
