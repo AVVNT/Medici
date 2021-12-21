@@ -1,0 +1,33 @@
+.Login{
+    margin-top: 10%;
+}
+
+h1{
+    color: white;
+    font-size: 80px;
+}
+
+p{
+    color: #5874a3;
+}
+
+.Input{
+    color: white;
+    background-color: #1b2956;
+    border: none;
+    width: 40%;
+    height: 40px;
+    border-radius: 5px;
+    font-size: 15px;
+}
+
+.Button{
+    margin-top: 40px;
+    color: white;
+    background-color: #7035f9;
+    border: none;
+    width: 40%;
+    height: 50px;
+    font-size: 25px;
+    border-radius: 5px;
+}
