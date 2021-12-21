@@ -58,6 +58,7 @@ export default function Login({setLoggedInUI}){
                 setErrorVisible(false)
 
                 sessionStorage.setItem('x-token', response.header.token)
+                // localStorage.setItem('x-token', response.header.token)
 
                 setIsLoggedIn(true)
 
