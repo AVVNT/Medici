@@ -3,8 +3,32 @@ import { Splide, SplideSlide } from '@splidejs/react-splide';
 import '@splidejs/splide/dist/css/themes/splide-skyblue.min.css';
 import nestleLogo from '../../Assets/Nestle_logo_PNG4.png'
 import Header from "../../components/Header/header";
+import axios from 'axios';
+import { useEffect } from 'react';
 
-function home() {
+function Home() {
+    useEffect(() => {
+        async function fetchProduct() {
+            await getProductfromCategoryOne();
+            // await getProductfromCategoryTwo();
+            // await getProductfromCategoryThree();
+            // await getProductfromCategoryFour();
+        }
+
+        // setHeaders({
+        //     'Content-Type': 'application/json',
+        //     'x-access-token': sessionStorage.getItem('x-token')
+        // })
+
+        fetchProduct();
+    }, []);
+
+    async function getProductfromCategoryOne() {
+        let response = await axios.get('http://localhost:3000/api/listing/immunity%20boosters/1');
+        console.log(response);
+    }
+
+
     return (
         <div>
             <Header />
@@ -307,4 +331,4 @@ function home() {
     );
 }
 
-export default home;
+export default Home;
