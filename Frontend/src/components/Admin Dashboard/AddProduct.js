@@ -17,15 +17,17 @@ export default function AddProduct() {
     })
     const [categories, setCategories] = useState([])
     const [message, setMessage] = useState("")
-    const headers = {
-        'Content-Type': 'application/json',
-        'x-access-token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTdkOGUwYTM2YjM5YmE2MzVjZTI5MzQiLCJpYXQiOjE2Mzk5MjY4OTEsImV4cCI6MTY0MDAxMzI5MX0.kY-joLUoAssNHCAkINf2USZZPtK4TgUvleYpkT_3I7g'
-    }
+    const [headers, setHeaders] = useState({})
 
     useEffect(() => {
         async function fetchMyAPI() {
           await getCategories()
         }
+
+        setHeaders({
+            'Content-Type': 'application/json',
+            'x-access-token': sessionStorage.getItem('x-token')
+        })
     
         fetchMyAPI()
     }, [])
