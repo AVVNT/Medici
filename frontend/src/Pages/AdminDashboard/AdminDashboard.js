@@ -5,6 +5,7 @@ import RemoveProduct from '../../components/Admin Dashboard/RemoveProduct';
 import { useState } from 'react';
 import UpdateProduct from '../../components/Admin Dashboard/UpdateProduct';
 import Login from '../../components/Admin Dashboard/Login';
+import Orders from '../../components/Admin Dashboard/Orders';
 
 function AdminDashboard() {
     const [selectedTab, setSelectedTab] = useState("")
@@ -69,6 +70,13 @@ function AdminDashboard() {
                                                 Edit Category
                                             </button>
                                         </li>
+                                        <li className="navigation_list_item">
+                                            <button onClick={() => {
+                                                setSelectedTab("orders")
+                                            }}>
+                                                Orders
+                                            </button>
+                                        </li>
                                     </ul>
                                 </div>
                             </div>
@@ -86,6 +94,9 @@ function AdminDashboard() {
                             )}
                             {selectedTab === "update product" && (
                                 <UpdateProduct />
+                            )}
+                            {selectedTab === "orders" && (
+                                <Orders />
                             )}
                         </div>
                     </div>
