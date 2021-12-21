@@ -1,0 +1,30 @@
+.headersubcontainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo-container {
+    width: 20%;
+    background-color: violet;
+    text-align: left;
+}
+
+.search-container {
+    width: 40%;
+    background-color: tomato;
+    text-align: center;
+}
+
+.navbar-container {
+    min-height: fit-content;
+    text-align: right;
+    width: 40%;
+    background-color: blueviolet;
+}
+
+.navbarbutton {
+    padding: 10px 15px;
+    background-color: transparent;
+    border: 1px solid black
+}

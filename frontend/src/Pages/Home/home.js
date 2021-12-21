@@ -2,10 +2,12 @@ import './home.css';
 import { Splide, SplideSlide } from '@splidejs/react-splide';
 import '@splidejs/splide/dist/css/themes/splide-skyblue.min.css';
 import nestleLogo from '../../Assets/Nestle_logo_PNG4.png'
+import Header from "../../components/Header/header";
 
 function home() {
     return (
         <div>
+            <Header />
             <Splide options={{
                 type: 'loop',
                 pagination: false,
