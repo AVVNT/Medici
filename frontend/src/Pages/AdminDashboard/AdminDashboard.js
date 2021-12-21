@@ -5,7 +5,7 @@ import RemoveProduct from '../../components/Admin Dashboard/RemoveProduct';
 import { useState } from 'react';
 import UpdateProduct from '../../components/Admin Dashboard/UpdateProduct';
 import Login from '../../components/Admin Dashboard/Login';
-import Orders from '../../components/Admin Dashboard/Orders';
+// import Orders from '../../components/Admin Dashboard/Orders';
 
 function AdminDashboard() {
     const [selectedTab, setSelectedTab] = useState("")
@@ -95,9 +95,9 @@ function AdminDashboard() {
                             {selectedTab === "update product" && (
                                 <UpdateProduct />
                             )}
-                            {selectedTab === "orders" && (
+                            {/* {selectedTab === "orders" && (
                                 <Orders />
-                            )}
+                            )} */}
                         </div>
                     </div>
                 </div>}
