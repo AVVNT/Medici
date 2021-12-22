@@ -18,7 +18,8 @@ export default function AddProduct() {
     const [categories, setCategories] = useState([])
     const [message, setMessage] = useState("")
     // const [headers, setHeaders] = useState({})
-    let headers = {}
+    let headers = {'Content-Type': 'application/json',
+    'x-access-token': sessionStorage.getItem('x-token')}
 
     useEffect(() => {
         async function fetchMyAPI() {
@@ -44,6 +45,7 @@ export default function AddProduct() {
 
     async function addProduct(){
         setMessage("ADDING!!!")
+        console.log(headers)
         let response = await axios.post('http://localhost:3000/api/admin/products/add', data, {headers: headers})
         setMessage(response.data.header.message)
     }
@@ -118,7 +120,7 @@ export default function AddProduct() {
                         </button>
                     </div>
                 </form>
-                {message === "" ? <></> : <h1>{message}</h1>}
+                {message === "" ? <></> : <p>{message}</p>}
             </div>
             <div className="containerPreviewSection">
 

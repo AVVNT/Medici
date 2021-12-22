@@ -10,7 +10,8 @@ export default function RemoveProduct() {
     const [products, setProducts] = useState([])
     const [message, setMessage] = useState("")
     // const [headers, setHeaders] = useState({})
-    let headers = {}
+    let headers = {'Content-Type': 'application/json',
+    'x-access-token': sessionStorage.getItem('x-token')}
 
     useEffect(() => {
         async function fetchMyAPI() {
@@ -83,7 +84,7 @@ export default function RemoveProduct() {
                     buttonText="Remove"
                     setItem={setSelectedProduct}
                 />}
-                {message === "" ? <></> : <h1>{message}</h1>}
+                {message === "" ? <></> : <p>{message}</p>}
             </div>
             <div className="containerPreviewSection">
 

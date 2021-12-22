@@ -10,7 +10,8 @@ export default function UpdateProduct() {
     const [selectedProduct, setSelectedProduct] = useState(null)
     const [message, setMessage] = useState("")
     // const [headers, setHeaders] = useState({})
-    let headers = {}
+    let headers = {'Content-Type': 'application/json',
+    'x-access-token': sessionStorage.getItem('x-token')}
 
     useEffect(() => {
         async function fetchMyAPI() {
@@ -160,7 +161,7 @@ export default function UpdateProduct() {
                         </div>
                     </form>
                 }
-                {message === "" ? <></> : <h1>{message}</h1>}
+                {message === "" ? <></> : <p>{message}</p>}
             </div>
             <div className="containerPreviewSection">
 

@@ -7,7 +7,8 @@ export default function AddCategory() {
         category: ""
     })
     const [message, setMessage] = useState("")
-    let headers = {}
+    let headers = {'Content-Type': 'application/json',
+    'x-access-token': sessionStorage.getItem('x-token')}
 
     useEffect(() => {
         headers = {
@@ -46,7 +47,7 @@ export default function AddCategory() {
                         </button>
                     </div>
                 </form>
-                {message === "" ? <></> : <h1>{message}</h1>}
+                {message === "" ? <></> : <p>{message}</p>}
             </div>
             <div className="containerPreviewSection">
 

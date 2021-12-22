@@ -9,7 +9,8 @@ export default function UpcomingOrders() {
     // const [filteredOrders, setFilteredOrders] = useState(null)
     // const [filter, setFilter] = useState('')
     const [message, setMessage] = useState("")
-    let headers = {}
+    let headers = {'Content-Type': 'application/json',
+    'x-access-token': sessionStorage.getItem('x-token')}
 
     useEffect(() => {
         async function fetchMyAPI() {
@@ -86,7 +87,7 @@ export default function UpcomingOrders() {
                         dataArray={prescriptions}
                     />}
 
-                {message === "" ? <></> : <h1>{message}</h1>}
+                {message === "" ? <></> : <p>{message}</p>}
             </div>
             <div className="containerPreviewSection">
 

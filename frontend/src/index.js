@@ -12,7 +12,7 @@ import reportWebVitals from './reportWebVitals';
 import Login from './Pages/Login/login';
 import Home from './Pages/Home/home';
 import AdminDashboard from './Pages/AdminDashboard/AdminDashboard';
-// import SingleProduct from './Pages/SingleProduct/SingleProduct';
+import SingleProduct from './Pages/SingleProduct/SingleProduct';
 import UserDashboard from './Pages/UserDashboard/UserDashboard'
 
 
@@ -23,7 +23,7 @@ ReactDOM.render(
         <Route path="/" element={<Home />} />
         <Route path="login" element={<Login />} />
         <Route path="dashboard" element={<AdminDashboard />} />
-        {/* <Route path="product" element={<SingleProduct />} /> */}
+        <Route path="product" element={<SingleProduct id="61b886e9732e473153d1c660"/>} />
         <Route path="userlogin" element={<UserDashboard />} />
       </Routes>
     </BrowserRouter>
