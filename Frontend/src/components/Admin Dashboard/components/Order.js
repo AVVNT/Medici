@@ -15,13 +15,14 @@ export default function Order({ details }) {
                 <p>{details.phone_number}</p>
             </button>
             {show ? <div>
+                <p>USER ID</p>
                 <p>{details.user_id}</p>
                 <p>STATUS</p>
                 <p>{details.details.status}</p>
                 <p>DELIVERED</p>
-                <p>{details.details.is_delivered}</p>
+                <p>{details.details.is_delivered ? <>YES</> : <>NO</>}</p>
                 <p>CANCELED</p>
-                <p>{details.details.is_cancelled}</p>
+                <p>{details.details.is_cancelled ? <>YES</> : <>NO</>}</p>
                 <p>ORDER</p>
                 {details.order.map(item => (
                     <div>
