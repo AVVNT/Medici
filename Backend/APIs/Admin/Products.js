@@ -170,4 +170,39 @@ router.post("/remove", async (req, res) =>{
     }
 })
 
+router.post("/checkstock", async (req, res) =>{
+    let token = req.headers['x-access-token'];
+    if (!token)
+        return(res.json(errors.jwtNoTokenProvided))
+    else{
+        jwt.verify(token, secret, async function (err, decoded){
+            if(err)
+                return res.json(errors.jwtAuthenticationFailed)
+
+            let data = {
+                "category": req.body.category,
+                "medicine_id" : req.body.medicine_id,
+                "qty_required" : req.body.qty_required
+            }
+            try{
+                let o_id = ObjectId(data.medicine_id)
+                let medicine = await db.getOneDocument(data.category,{
+                    "_id" : o_id
+                })
+
+                // let stockDiff = medicine.stock - 
+
+                return res.json({
+                    "header" : {
+                        "error": 0,
+                        "message" : "Product Deleted Sucessfully"
+                    }
+                })
+            } catch(error) {
+                res.json(errors.databaseError(error))
+            }
+        })
+    }
+})
+
 module.exports = router

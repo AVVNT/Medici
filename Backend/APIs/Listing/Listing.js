@@ -79,7 +79,7 @@ make sure object id is of the specified length otherwise mongo throws error
 router.post("/product/:category/:id", async (req, res) =>{
     let data = {
         "category" : req.params.category,
-        "_id" : req.params._id
+        "_id" : req.params.id
     }
     let o_id = ObjectId(data._id)
     try {
