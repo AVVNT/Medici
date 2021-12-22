@@ -1,33 +1,19 @@
 .splide__slide1 {
-    background-image: url("../../Assets/sliderimage1.jpg");
+    background-image: url("../../Assets/banner1.jpg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
 }
 
 .splide__slide2 {
-    background-image: url("../../Assets/sliderimage2.jpg");
+    background-image: url("../../Assets/banner2.jpg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
 }
 
 .splide__slide3 {
-    background-image: url("../../Assets/sliderimage3.jpg");
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-
-.splide__slide4 {
-    background-image: url("../../Assets/sliderimage4.jpg");
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-
-.splide__slide5 {
-    background-image: url("../../Assets/sliderimage5.jpg");
+    background-image: url("../../Assets/banner3.jpg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -41,6 +27,27 @@
     height: 100%;
 }
 
+.splide__slide1_cntr-heading {
+    font-size: 70px;
+    margin: 0;
+    padding: 0;
+}
+
+.splide__slide1_cntr-para {
+    font-size: 50px;
+    margin: 0;
+    padding: 0;
+    color: White;
+}
+
+.splide__slide1_cntr-button {
+    background-color: transparent;
+    border: 1px solid white;
+    padding: 20px 40px;
+    color: white;
+    margin-top: 10px;
+}
+
 
 .howyoufeelingcntr__firstrow {
     display: flex;
@@ -52,7 +59,6 @@
 .howyoufeelingcntr__firstrow-col {
     width: 400px;
     height: 300px;
-    background-color: blueviolet;
     margin: 0 0 20px;
 }
 
@@ -66,12 +72,80 @@
 .howyoudeelingcntr__secondrow-col {
     width: 400px;
     height: 300px;
-    background-color: aqua;
     margin: 20px 0 0;
+}
+
+.sick1 {
+    background-image: url('../../Assets/sick1.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.sick2 {
+    background-image: url('../../Assets/sick2.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.sick3 {
+    background-image: url('../../Assets/sick3.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.sick4 {
+    background-image: url('../../Assets/sick4.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.sick5 {
+    background-image: url('../../Assets/sick5.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.sick6 {
+    background-image: url('../../Assets/sick6.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.sick7 {
+    background-image: url('../../Assets/sick7.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.sick8 {
+    background-image: url('../../Assets/sick8.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+
+.howyoudoinhead {
+    text-align: center;
+    margin-block-start: 50px;
+    margin-block-end: 20px;
+    font-size: 20px;
 }
 
 .howyoufeelingcntr {
     padding: 20px 0;
+}
+
+.immunityboastercntr {
+    margin-block: 50px;
 }
 
 .immunityboastercntr__headingcntr-heading {
@@ -90,10 +164,21 @@
     width: 15%;
     height: 45vh;
     border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding-block: 20px;
+
 }
 
 .immunityboastercntr__productcntr-col-lastcol {
-    background-color: aqua;
+    background-color: #66b334;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
 }
 
 .slidelogo {
@@ -101,11 +186,12 @@
 }
 
 .scheduleyourmedscntr {
-    min-height: 30vh;
+    margin-bottom: 0;
+    padding-bottom: 0;
 }
 
 .scheduleyourmedcntr__subcntr {
-    background-color: cadetblue;
+    background-color: #66b334;
     display: flex;
     flex-direction: row;
 }
@@ -120,4 +206,115 @@
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+}
+
+.product_image_thumbnail {
+    width: 200px;
+    height: 200px;
+    margin: 20px auto;
+}
+
+.product_image_heading {
+    font-size: 15px;
+    margin: 5px 0;
+    padding: 0;
+}
+
+.product_image_subheading {
+    font-size: 15px;
+    margin: 5px 0;
+    padding: 0;
+}
+
+.product_image_price {
+    font-size: 15px;
+    color: black
+}
+
+.product_image_calltoaction-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.addtocarthomebutton {
+    padding: 10px 15px;
+    background-color: transparent;
+    border: 1px solid;
+}
+
+.checkoutnowhomebutton {
+    padding: 10px 15px;
+    background-color: transparent;
+    border: 1px solid;
+}
+
+.information-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding-block: 20px;
+}
+
+.viewalltext {
+    margin: 0;
+    padding: 0;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.titletext {
+    margin: 0;
+    padding: 0;
+    color: white;
+    font-size: 25px;
+    font-weight: normal;
+}
+
+.sicktext {
+    font-size: 20px;
+    font-weight: 700;
+    padding-left: 25px;
+    padding-top: 10px;
+    width: 40%;
+}
+
+.schedulecntr {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-block: 50px;
+}
+
+.scheduleyourmedscntr {
+    margin: 20px 0 0;
+
+}
+
+.schedulecntr-button {
+    border: 1px solid white;
+    color: white;
+    font-size: 25px;
+    width: 80%;
+    background-color: transparent;
+    padding: 15px 20px;
+}
+
+.schedulecntr-text {
+    color: white;
+    letter-spacing: 3px;
+}
+
+.copyright {
+    background-color: gray;
+}
+
+.copyright-text {
+    color: white;
+    text-align: center;
+    margin: 0;
+    padding: 20px 0;
 }

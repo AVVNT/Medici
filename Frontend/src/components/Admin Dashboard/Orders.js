@@ -84,7 +84,8 @@ export default function Orders() {
                     :
                     <ListOrders
                         dataArray={filteredOrders}
-                    />}
+                    />
+                }
 
                 {message === "" ? <></> : <h1>{message}</h1>}
             </div>
