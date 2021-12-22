@@ -4,16 +4,34 @@ import axios from 'axios';
 
 export default function AddPrescription() {
     const [data, setData] = useState({
-        name: "",
-        sku: "",
-        manufacturer: "",
-        stock: 0,
-        price: 0.0,
-        details: "",
-        short_description: "",
-        long_description: "",
-        product_image: "",
-        category: ""
+        title: "",
+        repeat: "",
+        medicine: [
+            {
+                "id": "",
+                "category": "",
+                "qty": 0
+            },
+            {
+                "id": "",
+                "category": "",
+                "qty": 0
+            },
+            {
+                "id": "",
+                "category": "",
+                "qty": 0
+            }
+        ],
+        order1name: "",
+        order1category: "",
+        order1qty: 0,
+        order2name: "",
+        order2category: "",
+        order2qty: 0,
+        order3name: "",
+        order3category: "",
+        order3qty: 0,
     })
     const [categories, setCategories] = useState([])
     const [message, setMessage] = useState("")
@@ -22,14 +40,14 @@ export default function AddPrescription() {
 
     useEffect(() => {
         async function fetchMyAPI() {
-          await getCategories()
+            await getCategories()
         }
 
         headers = {
             'Content-Type': 'application/json',
             'x-access-token': sessionStorage.getItem('x-token')
         }
-    
+
         fetchMyAPI()
     }, [])
 
@@ -37,14 +55,14 @@ export default function AddPrescription() {
         setData({ ...data, [e.target.name]: e.target.value });
     }
 
-    async function getCategories(){
+    async function getCategories() {
         let response = await axios.get('http://localhost:3000/api/admin/category/getall')
         setCategories(response.data.data)
     }
 
-    async function addProduct(){
+    async function addProduct() {
         setMessage("ADDING!!!")
-        let response = await axios.post('http://localhost:3000/api/admin/products/add', data, {headers: headers})
+        let response = await axios.post('http://localhost:3000/api/user/prescription/createprescription', data, { headers: headers })
         setMessage(response.data.header.message)
     }
 
@@ -55,33 +73,33 @@ export default function AddPrescription() {
                 <form className="primary-font form">
                     <div className="col-1">
                         <label>Title:</label> <br />
-                        <input type="text" name="name" value={data.name} onChange={handleChange}/>
+                        <input type="text" name="name" value={data.title} onChange={handleChange} />
                     </div>
                     <div className="col-1">
                         <label>Repeat:</label> <br />
                         <select
                             name='category'
-                            value={data.category}
+                            value={data.repeat}
                             onChange={handleChange}
-                            // defaultValue={categories[0]}
+                        // defaultValue={categories[0]}
                         >
                             <option>bi-weekly</option>
                             <option>weekly</option>
                             <option>monthly</option>
                         </select>
                     </div>
-                    
+
                     <div>Order</div>
                     <div>
                         <p>order 1</p> <br />
                         <label>Name</label>
-                        <input type='text' name="long_description" value={data.long_description} onChange={handleChange}/>
+                        <input type='text' name="order1name" value={data.medicine[0].id} onChange={handleChange} />
                         <br /><label>Select Category</label> <br />
                         <select
-                            name='category'
-                            value={data.category}
+                            name='order1category'
+                            value={data.order1category}
                             onChange={handleChange}
-                            // defaultValue={categories[0]}
+                        // defaultValue={categories[0]}
                         >
                             {categories.map(item => (
                                 <option
@@ -93,19 +111,19 @@ export default function AddPrescription() {
                             ))}
                         </select><br />
                         <label>Qty</label>
-                        <input type='number' name="long_description" value={data.long_description} onChange={handleChange}/>
+                        <input type='number' name="order1qty" value={data.order1qty} onChange={handleChange} />
 
                     </div>
                     <div>
                         <p>order 2</p> <br />
                         <label>Name</label>
-                        <input type='text' name="long_description" value={data.long_description} onChange={handleChange}/>
+                        <input type='text' name="order2name" value={data.order2name} onChange={handleChange} />
                         <br /><label>Select Category</label> <br />
                         <select
-                            name='category'
-                            value={data.category}
+                            name='order2category'
+                            value={data.order2category}
                             onChange={handleChange}
-                            // defaultValue={categories[0]}
+                        // defaultValue={categories[0]}
                         >
                             {categories.map(item => (
                                 <option
@@ -117,19 +135,19 @@ export default function AddPrescription() {
                             ))}
                         </select><br />
                         <label>Qty</label>
-                        <input type='number' name="long_description" value={data.long_description} onChange={handleChange}/>
+                        <input type='number' name="order2qty" value={data.order2qty} onChange={handleChange} />
 
                     </div>
                     <div>
                         <p>order 3</p> <br />
                         <label>Name</label>
-                        <input type='text' name="long_description" value={data.long_description} onChange={handleChange}/>
+                        <input type='text' name="order3name" value={data.order3name} onChange={handleChange} />
                         <br /><label>Select Category</label> <br />
                         <select
-                            name='category'
-                            value={data.category}
+                            name='order3category'
+                            value={data.order3category}
                             onChange={handleChange}
-                            // defaultValue={categories[0]}
+                        // defaultValue={categories[0]}
                         >
                             {categories.map(item => (
                                 <option
@@ -141,16 +159,16 @@ export default function AddPrescription() {
                             ))}
                         </select><br />
                         <label>Qty</label>
-                        <input type='number' name="long_description" value={data.long_description} onChange={handleChange}/>
+                        <input type='number' name="order3qty" value={data.order3qty} onChange={handleChange} />
 
                     </div>
-                    
+
                     <div>
                         <button
                             type='button'
-                            onClick={async()=>{
+                            onClick={async () => {
                                 await addProduct()
-                            }} 
+                            }}
                         >
                             ADD PRODUCT
                         </button>

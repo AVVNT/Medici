@@ -58,7 +58,7 @@ router.post("/search", async (req, res) =>{
                 },
             ]
         }
-        let result = await db.getManyDocuments(hallCollections, query)
+        let result = await db.getManyDocuments(config.categoriesCollectionName, query)
         return(res.json({
             "header": {
                 "error": 0,
