@@ -11,6 +11,7 @@ const adminAuth = require('./APIs/Admin/Authentication')
 const adminCategory = require('./APIs/Admin/Category')
 const adminProducts = require('./APIs/Admin/Products')
 const adminOrders = require('./APIs/Admin/Orders')
+const adminPrescriptions = require('./APIs/Admin/Prescriptions')
 const authentication = require('./APIs/Authentication/Authentication');
 const listing = require('./APIs/Listing/Listing')
 const userPrescriptions = require('./APIs/Users/Prescriptions')
@@ -25,6 +26,7 @@ app.use('/api/admin/authentication', adminAuth)
 app.use('/api/admin/category', adminCategory)
 app.use('/api/admin/products', adminProducts)
 app.use('/api/admin/orders', adminOrders)
+app.use('/api/admin/prescriptions', adminPrescriptions)
 
 //AUTHENTICATION APIS
 app.use('/api/authentication', authentication)
