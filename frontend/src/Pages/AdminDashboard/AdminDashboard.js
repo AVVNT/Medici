@@ -6,6 +6,7 @@ import { useState } from 'react';
 import UpdateProduct from '../../components/Admin Dashboard/UpdateProduct';
 import Login from '../../components/Admin Dashboard/Login';
 import Orders from '../../components/Admin Dashboard/Orders';
+import UpcomingOrders from '../../components/Admin Dashboard/UpcomingOrders';
 
 function AdminDashboard() {
     const [selectedTab, setSelectedTab] = useState("")
@@ -77,6 +78,13 @@ function AdminDashboard() {
                                                 Orders
                                             </button>
                                         </li>
+                                        <li className="navigation_list_item">
+                                            <button onClick={() => {
+                                                setSelectedTab("upcoming orders")
+                                            }}>
+                                                Upcoming Orders
+                                            </button>
+                                        </li>
                                     </ul>
                                 </div>
                             </div>
@@ -97,6 +105,9 @@ function AdminDashboard() {
                             )}
                             {selectedTab === "orders" && (
                                 <Orders />
+                            )}
+                            {selectedTab === "upcoming orders" && (
+                                <UpcomingOrders />
                             )}
                         </div>
                     </div>

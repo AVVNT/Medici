@@ -7,6 +7,7 @@ export default function Orders() {
     const [orders, setOrders] = useState(null)
     const [searchFilter, setSearchFilter] = useState('')
     const [filteredOrders, setFilteredOrders] = useState(null)
+    const [filter, setFilter] = useState('')
     const [message, setMessage] = useState("")
     let headers = {}
 
@@ -36,6 +37,11 @@ export default function Orders() {
         setFilteredOrders(response.data.data)
     }
 
+    async function getOrdersWithFilter(){
+        let response = await axios.get('http://localhost:3000/api/admin/orders/getorders', { headers: headers, params: {'filter': filter} })
+        console.log(response);
+    }
+
     function getSearchOrders() {
         if (searchFilter === "") {
             setFilteredOrders(orders);
@@ -63,22 +69,16 @@ export default function Orders() {
                         }}
                     />
                 </div>
-                {/* <p>Select Category</p>
+                {/* <p>Filter</p>
                 <select
-                    name='selectedCategory'
-                    value={selectedCategory}
+                    name='filter'
+                    value={filter}
                     onChange={(e)=>{
-                        setSelectedCategory(e.target.value)
+                        setFilter(e.target.value)
+                        getOrdersWithFilter(filter)
                     }}
                 >
-                    {categories.map(item => (
-                        <option
-                            key={item._id}
-                            value={item.name}
-                        >
-                            {item.name}
-                        </option>
-                    ))}
+                    <option></option>
                 </select> */}
                 {filteredOrders == null ? <p>LOADING</p>
                     :
