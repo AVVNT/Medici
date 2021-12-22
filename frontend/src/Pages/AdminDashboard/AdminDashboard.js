@@ -7,6 +7,7 @@ import UpdateProduct from '../../components/Admin Dashboard/UpdateProduct';
 import Login from '../../components/Admin Dashboard/Login';
 import Orders from '../../components/Admin Dashboard/Orders';
 import UpcomingOrders from '../../components/Admin Dashboard/UpcomingOrders';
+import AddCategory from '../../components/Admin Dashboard/AddCategory';
 
 function AdminDashboard() {
     const [selectedTab, setSelectedTab] = useState("")
@@ -108,6 +109,9 @@ function AdminDashboard() {
                             )}
                             {selectedTab === "upcoming orders" && (
                                 <UpcomingOrders />
+                            )}
+                            {selectedTab === "add category" && (
+                                <AddCategory />
                             )}
                         </div>
                     </div>

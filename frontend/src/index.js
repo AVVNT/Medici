@@ -13,6 +13,7 @@ import Login from './Pages/Login/login';
 import Home from './Pages/Home/home';
 import AdminDashboard from './Pages/AdminDashboard/AdminDashboard';
 import SingleProduct from './Pages/SingleProduct/singleproduct';
+import UserDashboard from './Pages/UserDashboard/UserDashboard'
 
 
 ReactDOM.render(
@@ -23,6 +24,7 @@ ReactDOM.render(
         <Route path="login" element={<Login />} />
         <Route path="dashboard" element={<AdminDashboard />} />
         <Route path="product" element={<SingleProduct />} />
+        <Route path="userlogin" element={<UserDashboard />} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>,
