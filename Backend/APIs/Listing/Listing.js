@@ -76,7 +76,7 @@ router.post("/search", async (req, res) =>{
 /*
 make sure object id is of the specified length otherwise mongo throws error
 */
-router.post("/product/:category/:id", async (req, res) =>{
+router.get("/product/:category/:id", async (req, res) =>{
     let data = {
         "category" : req.params.category,
         "_id" : req.params.id
