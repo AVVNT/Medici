@@ -190,12 +190,23 @@ router.post("/checkstock", async (req, res) =>{
                     "_id" : o_id
                 })
 
-                // let stockDiff = medicine.stock - 
+                let stockDiff = medicine.stock - data.qty_required
+                let isStock
+                if(stockDiff >= 0){
+                    isStock = true
+                }
+                else{
+                    isStock = false
+                }
 
                 return res.json({
                     "header" : {
                         "error": 0,
-                        "message" : "Product Deleted Sucessfully"
+                        "message" : "Retrieved Sucessfully"
+                    },
+                    "body" : {
+                        "is_in_stock" : isStock,
+                        "stock_left" : stockDiff
                     }
                 })
             } catch(error) {
